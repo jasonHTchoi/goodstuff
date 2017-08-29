@@ -21,39 +21,105 @@ export default class SettingsScreen extends React.Component {
     return (
     <ScrollView>
 
+<View style={styles.header}>
       <View style = {styles.profilecon}>
-        <View><Image source = {require('./Abhi.jpg')} style={styles.image} /></View>
+        <View>
+          <Image
+           style={styles.image} source = {require('./Abhi.jpg')} />
+        </View>
 
         <View style = {{left:3}}>
-          <View><Text style = {styles.profile}> Abhi Ramesh </Text></View>
-            <View style = {{flex:1, flexDirection: 'row', paddingHorizontal: 4, left: 7}}>
-              <View><Text style = {styles.desc}> Followers </Text></View>
-              <View><Text style = {styles.desc}> Following </Text></View>
-              <View><Text style = {styles.desc}> Hours Volunteered </Text></View>
+            <View style={{left:6}}><Text style = {styles.profile}> Abhi Ramesh </Text></View>
+            <View style = {{flex:1, flexDirection: 'row',  left: 17}}>
+              <View><Text style = {styles.desc}>  Followers </Text></View>
+              <View><Text style = {styles.desc}>    Following </Text></View>
+              <View><Text style = {styles.desc}>   Total Hours </Text></View>
             </View>
+
+            <View style={styles.counter}>
+              <TouchableOpacity><Text style={{fontSize: 15, color: '#507DDC' }}>      514 </Text></TouchableOpacity>
+              <TouchableOpacity><Text style={{fontSize: 15, color: '#507DDC' }}>    351 </Text></TouchableOpacity>
+              <TouchableOpacity><Text style={{fontSize: 15, color: '#507DDC' }}>     32 </Text></TouchableOpacity>
+            </View>
+
         </View>
       </View>
 
+      <View></View>
+</View>
+
+
       <View>
           <View>
-            <Text> Volunteered at local animal shelter </Text>
-            <Text> SOMA, San Francisco, CA </Text>
-            <Text> Hours committed: 15 </Text>
-            <Image source = {require('./horizons.jpg')} style={styles.eventimg} />
-            <TouchableOpacity style = {styles.button}><Text> See more </Text></TouchableOpacity>
+            <View style={styles.feed}>
+              <Text style={{fontSize: 10}}> Volunteered 15 hours at </Text>
+              <TouchableOpacity><Text style={{color:'#507DDC', fontSize: 10}}> Horizons School of Technology </Text></TouchableOpacity>
+            </View>
+
+            <TouchableOpacity><Text style={{color:'#999A9C', fontSize: 10}}> SOMA, San Francisco, CA </Text></TouchableOpacity>
+              <Image
+                  style={styles.eventimg}
+                  source = {require('./horizons.jpg')} />
+                <TouchableOpacity style = {styles.button}>
+                  <Text style={{color:'#507DDC', fontSize: 10}}> See more </Text>
+                  </TouchableOpacity>
+                  <Text></Text>
+                  <Text></Text>
           </View>
 
           <View>
-            <Text> Volunteer at elderly care center </Text>
-            <Text> Chinatown, San Francisco, CA </Text>
-            <TouchableOpacity style = {styles.button}><Text> See more </Text></TouchableOpacity>
+            <View style={styles.feed}>
+              <Text style={{fontSize: 10}}> Volunteered 15 hours at </Text>
+              <TouchableOpacity><Text style={{color:'#507DDC', fontSize: 10}}> Horizons School of Technology </Text></TouchableOpacity>
+            </View>
+
+            <TouchableOpacity><Text style={{color:'#999A9C', fontSize: 10}}> SOMA, San Francisco, CA </Text></TouchableOpacity>
+              <Image
+                  style={styles.eventimg}
+                  source = {require('./horizons.jpg')} />
+                <TouchableOpacity style = {styles.button}>
+                  <Text style={{color:'#507DDC', fontSize: 10}}> See more </Text>
+                  </TouchableOpacity>
+                  <Text></Text>
+                  <Text></Text>
           </View>
 
           <View>
-            <Text> Volunteer at elderly care center </Text>
-            <Text> Oakloand, CA </Text>
-            <TouchableOpacity style = {styles.button}><Text> See more </Text></TouchableOpacity>
+            <View style={styles.feed}>
+              <Text style={{fontSize: 10}}> Volunteered 15 hours at </Text>
+              <TouchableOpacity><Text style={{color:'#507DDC', fontSize: 10}}> Horizons School of Technology </Text></TouchableOpacity>
+            </View>
+
+            <TouchableOpacity><Text style={{color:'#999A9C', fontSize: 10}}> SOMA, San Francisco, CA </Text></TouchableOpacity>
+              <Image
+                  style={styles.eventimg}
+                  source = {require('./horizons.jpg')} />
+                <TouchableOpacity style = {styles.button}>
+                  <Text style={{color:'#507DDC', fontSize: 10}}> See more </Text>
+                  </TouchableOpacity>
+                  <Text></Text>
+                  <Text></Text>
           </View>
+
+
+          <View>
+            <View style={styles.feed}>
+              <Text style={{fontSize: 10}}> Volunteered 15 hours at </Text>
+              <TouchableOpacity><Text style={{color:'#507DDC', fontSize: 10}}> Horizons School of Technology </Text></TouchableOpacity>
+            </View>
+
+            <TouchableOpacity><Text style={{color:'#999A9C', fontSize: 10}}> SOMA, San Francisco, CA </Text></TouchableOpacity>
+              <Image
+                  style={styles.eventimg}
+                  source = {require('./horizons.jpg')} />
+                <TouchableOpacity style = {styles.button}>
+                  <Text style={{color:'#507DDC', fontSize: 10}}> See more </Text>
+                  </TouchableOpacity>
+                  <Text></Text>
+                  <Text></Text>
+          </View>
+
+
 
         </View>
 
@@ -65,6 +131,11 @@ export default class SettingsScreen extends React.Component {
 
 
 const styles = StyleSheet.create({
+  //header formatting:
+header: {
+  backgroundColor: '#f4fffe',
+  marginBottom: 10,
+},
 profilecon: {
   flexDirection: 'row',
   flex: 1,
@@ -75,23 +146,41 @@ image: {
   borderRadius: 45,
   left: 5,
   marginTop: 5,
+  marginBottom: 5,
   zIndex: 1,
+},
+desc: {
+  top: 8,
+  flex: 1,
+  fontSize: 10,
+  color: '#A5A5A5',
+  flexDirection: 'row',
+  justifyContent: 'space-around',
 },
 profile: {
 marginTop: 1,
 left: 8,
+top: 5,
 // backgroundColor: '#fff',
 fontSize: 30,
 },
-
-eventimg: {
-  resizeMode: 'contain',
+counter: {
+flexDirection: 'row',
+justifyContent: 'space-around',
+alignItems: 'flex-start',
+bottom: 20,
 },
 
-desc: {
-  flex: 1,
-  fontSize: 10,
-  color: '#A5A5A5',
+//body formatting:
+eventimg: {
+  alignSelf: 'stretch',
+  flex:1 ,
+  width: 350,
+  height: 250,
+  top: 5,
+},
+feed: {
+  flexDirection: 'row',
 },
 
 button: {

@@ -18,11 +18,14 @@ import { Button, Divider } from 'react-native-elements';
 
 import PopupDialog, { DialogTitle } from 'react-native-popup-dialog';
 
+import { List, ListItem, ListView } from 'react-native-elements';
+
+import ProgressBarClassic from 'react-native-progress-bar-classic';
 
 
-export default class SingleEventScreen extends React.Component {
+export default class RewardsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Event',
+    title: 'Rewards',
   };
 
   state = {
@@ -34,107 +37,114 @@ export default class SingleEventScreen extends React.Component {
       'ubuntumono-regular': require('../assets/fonts/UbuntuMono-Regular.ttf'),
     });
     this.setState({ fontLoaded: true });
-  }
+  };
+
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.imgcon}>
-        <Image style={styles.img}
-        source={require('../pug.jpg')}
-      />
-        </View>
-        <View style={styles.titlecon}>
-        <View>
-        {
-          this.state.fontLoaded ? (
-            <Text style={styles.text}>
-            DOG-WALKING AT SPCA
-            </Text>
-            ) : null
-          }
-        </View>
-        <View style={styles.datecon}>
-        {
-          this.state.fontLoaded ? (
-            <Text style={styles.datetext}>
-            Saturday September 2 03:00 PM
-            </Text>
-            ) : null
-          }
-        </View>
-        <View style={styles.buttoncon}>
-        <Button
-        raised
-        icon={{name: 'favorite'}}
-        title='SIGN UP'
-        backgroundColor='#84DCC6'
-        buttonStyle={{
-          height: 30,
-          width: 120,
-          alignSelf: 'center',
-        }}
-        onPress={() => {
-      this.popupDialog.show();
-    }}
-        />
+      <ScrollView>
+      <List>
+     <ListItem
+       Avatar
+       title='20% off select items'
+       subtitle={
+         <View>
 
-        </View>
-        </View>
-        <View style={styles.divider}>
-        {
-          this.state.fontLoaded ? (
-            <Text style={styles.details}>
-            INFORMATION
-            </Text>
-            ) : null
-          }
-        </View>
+          <ProgressBarClassic progress={40} />
 
-        <View style={styles.imgcon3}>
-        {
-          this.state.fontLoaded ? (
-        <Text style={styles.description}>
-        {`Help our shelter dogs get their much-needed love and exercise!
+         </View>
+       }
+       avatar={require('../storelogos/disney.png')}
+     />
+     <ListItem
+       Avatar
+       title='20% off select items'
+       subtitle={
+         <View style={styles.subtitleView}>
+           <Text style={styles.ratingText}>Disney Store</Text>
+           <Text style={styles.ratingText}>Valid for 6 months</Text>
+         </View>
+       }
+       avatar={require('../storelogos/disney.png')}
+     />
+     <ListItem
+       Avatar
+       title='20% off select items'
+       subtitle={
+         <View style={styles.subtitleView}>
+           <Text style={styles.ratingText}>Disney Store</Text>
+           <Text style={styles.ratingText}>Valid for 6 months</Text>
+         </View>
+       }
+       avatar={require('../storelogos/disney.png')}
+     />
+     <ListItem
+       Avatar
+       title='20% off select items'
+       subtitle={
+         <View style={styles.subtitleView}>
+           <Text style={styles.ratingText}>Disney Store</Text>
+           <Text style={styles.ratingText}>Valid for 6 months</Text>
+         </View>
+       }
+       avatar={require('../storelogos/disney.png')}
+     />
+     <ListItem
+       Avatar
+       title='20% off select items'
+       subtitle={
+         <View style={styles.subtitleView}>
+           <Text style={styles.ratingText}>Disney Store</Text>
+           <Text style={styles.ratingText}>Valid for 6 months</Text>
+         </View>
+       }
+       avatar={require('../storelogos/disney.png')}
+     />
+     <ListItem
+       Avatar
+       title='20% off select items'
+       subtitle={
+         <View style={styles.subtitleView}>
+           <Text style={styles.ratingText}>Disney Store</Text>
+           <Text style={styles.ratingText}>Valid for 6 months</Text>
+         </View>
+       }
+       avatar={require('../storelogos/disney.png')}
+     />
+     <ListItem
+       Avatar
+       title='20% off select items'
+       subtitle={
+         <View style={styles.subtitleView}>
+           <Text style={styles.ratingText}>Disney Store</Text>
+           <Text style={styles.ratingText}>Valid for 6 months</Text>
+         </View>
+       }
+       avatar={require('../storelogos/disney.png')}
+     />
+   </List>
 
-          They need you.
-          We need you.
-          You can make a difference.
-
-As the largest animal welfare organization on the West Coast, the San Francisco SPCA relies on the assistance of caring, hardworking volunteers in all our programs.
-
-You can help us reach our goal to end animal abandonment in San Francisco by 2020.`}
-        </Text>
-      ) : null
-    }
-        </View>
-        <PopupDialog
-        width={250}
-        height={200}
-    dialogTitle={<DialogTitle title="Signed Up" />}
-    ref={(popupDialog) => { this.popupDialog = popupDialog; }}
-  >
-    <View style={styles.poptextcon}>
-    <Text style={styles.poptext}>
-    {`
-      Thank you for signing up!
-
-      A confirmation email has been sent to you and the event organizers.
-
-      Keep doing good you care about and getting stuff you like!`}
-    </Text>
-
-    </View>
-  </PopupDialog>
-
-      </View>
-
+      </ScrollView>
 
     );
   }
 }
 
 const styles = StyleSheet.create({
+  subtitleView: {
+    flexDirection: 'row',
+    paddingLeft: 10,
+    paddingTop: 5
+  },
+  ratingImage: {
+    height: 19.21,
+    width: 100
+  },
+  ratingText: {
+    paddingLeft: 10,
+    fontSize: 10,
+    color: 'grey'
+  },
   poptext: {
     fontSize: 10,
     color: '#4F4F4F',

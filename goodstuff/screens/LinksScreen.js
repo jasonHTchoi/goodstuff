@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
@@ -18,11 +19,11 @@ export default class SettingsScreen extends React.Component {
 
   render() {
     return (
-    <ScrollView>
+
+    <ScrollView style={{backgroundColor: '#ffffff'}}>
 
 
       <View>
-
         <View>
           <View style={styles.volun}>
             <View>
@@ -30,6 +31,7 @@ export default class SettingsScreen extends React.Component {
                 source = {require('./user.png')}
                 style={styles.user} />
             </View>
+
 
             <View>
               <View style={styles.feed}>
@@ -63,18 +65,18 @@ export default class SettingsScreen extends React.Component {
 
             <View>
               <View style={styles.feed}>
-                <Text style={{fontSize: 10}}> Darwish needs 15 hrs of help at</Text>
+                <Text style={{fontSize: 10}}> Sunny needs 5 hrs of help at</Text>
                 <Text></Text>
-                <TouchableOpacity><Text style={{color:'#507DDC', fontSize: 10}}> SPCA SF </Text></TouchableOpacity>
+                <TouchableOpacity><Text style={{color:'#507DDC', fontSize: 10}}> Berkeley WWF </Text></TouchableOpacity>
             </View>
-              <TouchableOpacity><Text style={{color:'#999A9C', fontSize: 10}}> SOMA, San Francisco, CA </Text></TouchableOpacity>
+              <TouchableOpacity><Text style={{color:'#999A9C', fontSize: 10}}> Berkeley, Oakland, CA </Text></TouchableOpacity>
             </View>
           </View>
 
           <View>
             <Image
                 style={styles.eventimg}
-                source = {require('./SPCA.jpg')} />
+                source = {require('./berkeley.jpg')} />
               <TouchableOpacity style = {styles.button}>
                 <Text style={{color:'#507DDC', fontSize: 10}}> Will, Daniel and 10 others are volunteering </Text>
                 </TouchableOpacity>
@@ -113,8 +115,9 @@ export default class SettingsScreen extends React.Component {
                 <Text></Text>
           </View>
         </View>
-          </View>
 
+
+          </View>
 
 
     </ScrollView>
@@ -184,3 +187,23 @@ button: {
 },
 
 });
+
+const rightButtonConfig = {
+  title: 'Next',
+  handler: () => alert('hello!'),
+};
+
+const titleConfig = {
+  title: 'Hello, world',
+};
+
+function ComponentWithNavigationBar() {
+  return (
+    <View style={styles.container}>
+      <NavigationBar
+        title={titleConfig}
+        rightButton={rightButtonConfig}
+      />
+    </View>
+  );
+}

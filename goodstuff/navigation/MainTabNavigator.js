@@ -12,6 +12,7 @@ import SingleEventScreen from '../screens/SingleEventScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import ChooseCauseScreen from '../screens/ChooseCauseScreen';
 
+
 export default TabNavigator(
   {
     Home: {

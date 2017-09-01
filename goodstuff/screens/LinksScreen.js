@@ -20,19 +20,9 @@ export default class SettingsScreen extends React.Component {
   render() {
     return (
 
-    <ScrollView>
-      <NavBar style={{bottom:20}}>
-       <NavButton onPress={() => alert('hi')}>
-         <NavButtonText style={{fontSize:10}}>
-           {"Sort by causes"}
-         </NavButtonText>
-       </NavButton>
-       <NavButton onPress={() => alert('hi')}>
-         <NavButtonText style={{fontSize:10}}>
-           {"Sort by events"}
-         </NavButtonText>
-       </NavButton>
-     </NavBar>
+    <ScrollView style={{backgroundColor: '#ffffff'}}>
+
+
       <View>
         <View>
           <View style={styles.volun}>
@@ -41,6 +31,7 @@ export default class SettingsScreen extends React.Component {
                 source = {require('./user.png')}
                 style={styles.user} />
             </View>
+
 
             <View>
               <View style={styles.feed}>

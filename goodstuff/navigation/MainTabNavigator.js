@@ -9,7 +9,8 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import SingleEventScreen from '../screens/SingleEventScreen';
-import RewardsScreen from '../screens/RewardsScreen';
+import SignUpScreen from '../screens/SignUpScreen';
+import ChooseCauseScreen from '../screens/ChooseCauseScreen';
 
 export default TabNavigator(
   {
@@ -25,8 +26,11 @@ export default TabNavigator(
     Event: {
       screen: SingleEventScreen,
     },
-    Rewards: {
-      screen: RewardsScreen,
+    ChooseCause: {
+      screen: ChooseCauseScreen,
+    },
+    SignUp: {
+      screen: SignUpScreen,
     }
   },
   {
@@ -50,11 +54,17 @@ export default TabNavigator(
               ? `ios-options${focused ? '' : '-outline'}`
               : 'md-options';
               break;
-          case 'Rewards':
+          case 'Sign Up':
                 iconName = Platform.OS === 'ios'
                   ? `ios-options${focused ? '' : '-outline'}`
-                  : 'md-options';
+                  : 'md-link';
                   break;
+          case 'Choose Cause':
+          iconName = Platform.OS === 'ios'
+          ? `ios-options${focused ? '' : '-outline'}`
+          : 'md-link';
+          break;
+
             case 'Event':
             iconName = Platform.OS === 'ios'
               ? `ios-link${focused ? '' : '-outline'}`

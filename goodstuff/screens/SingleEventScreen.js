@@ -40,54 +40,58 @@ export default class SingleEventScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.imgcon}>
-        <Image style={styles.img}
-        source={require('../pug.jpg')}
-      />
+          <Image style={styles.img}
+            source={require('../pug.jpg')}
+          />
         </View>
         <View style={styles.titlecon}>
-        <View>
-        {
-          this.state.fontLoaded ? (
-            <Text style={styles.text}>
-            DOG-WALKING AT SPCA
-            </Text>
-            ) : null
-          }
-        </View>
-        <View style={styles.datecon}>
-        {
-          this.state.fontLoaded ? (
-            <Text style={styles.datetext}>
-            Saturday September 2 03:00 PM
-            </Text>
-            ) : null
-          }
-        </View>
-        <View style={styles.buttoncon}>
-        <Button
-        raised
-        icon={{name: 'favorite'}}
-        title='SIGN UP'
-        backgroundColor='#84DCC6'
-        buttonStyle={{
-          height: 30,
-          width: 120,
-          alignSelf: 'center',
-        }}
-        onPress={() => {
-      this.popupDialog.show();
-    }}
-        />
-
-        </View>
+          <View>
+            {
+              this.state.fontLoaded
+                ? (
+                    <Text style={styles.text}>
+                      DOG-WALKING AT SPCA
+                    </Text>
+                  )
+                : null
+            }
+          </View>
+          <View style={styles.datecon}>
+            {
+              this.state.fontLoaded
+                ? (
+                    <Text style={styles.datetext}>
+                      Saturday September 2 03:00 PM
+                    </Text>
+                  )
+                : null
+            }
+          </View>
+          <View style={styles.buttoncon}>
+            <Button
+              icon={{name: 'favorite'}}
+              title='SIGN UP'
+              backgroundColor='#84DCC6'
+              buttonStyle={{
+                height: 30,
+                width: 120,
+                alignSelf: 'center',
+              }}
+              onPress={() => {
+                this.popupDialog.show();
+              }}
+            />
+          </View>
         </View>
         <View style={styles.divider}>
-        {
-          this.state.fontLoaded ? (
-            <Text style={styles.details}>
-            INFORMATION
-            </Text>
-            ) : null
+          {
+            this.state.fontLoaded
+              ? (
+                <Text style={styles.details}>
+                  INFORMATION
+                </Text>
+                )
+              : null
           }
         </View>
 
@@ -126,8 +130,7 @@ You can help us reach our goal to end animal abandonment in San Francisco by 202
 
     </View>
   </PopupDialog>
-
-      </View>
+</View>
 
 
     );
@@ -138,7 +141,7 @@ const styles = StyleSheet.create({
   poptext: {
     fontSize: 10,
     color: '#4F4F4F',
-    marginTop: 20,
+    marginTop: 10,
     textAlign: 'center',
   },
   poptextcon: {
@@ -146,6 +149,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    display: 'flex',
     backgroundColor: 'red',
   },
   imgcon: {

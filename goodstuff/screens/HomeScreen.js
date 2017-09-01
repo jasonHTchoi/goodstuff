@@ -6,113 +6,587 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  TouchableHighlight,
   View,
+  ProgressViewIOS,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
-export default class HomeScreen extends React.Component {
+import { Font } from 'expo';
+
+import { Button, Divider } from 'react-native-elements';
+
+import PopupDialog, { DialogTitle } from 'react-native-popup-dialog';
+
+import { List, ListItem, ListView } from 'react-native-elements';
+
+import ProgressBarClassic from 'react-native-progress-bar-classic';
+
+
+
+export default class RewardsScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    title: 'Rewards',
+  };
+
+  state = {
+      fontLoaded: false,
+    };
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      'ubuntumono-regular': require('../assets/fonts/UbuntuMono-Regular.ttf'),
+    });
+    this.setState({ fontLoaded: true });
   };
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView>
+      <List>
+      <TouchableOpacity>
 
-        <View style={styles.tabBarInfoContainer}>
-
-
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-          <Text> Home </Text>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
           </View>
-
-          <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View
-              style={[
-                styles.codeHighlightContainer,
-                styles.homeScreenFilename,
-              ]}>
-              <MonoText style={styles.codeHighlightText}>
-                screens/HomeScreen.js
-              </MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Discover nearby volunteer causes here!
-            </Text>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Adidas</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
           </View>
-
-          <View style={styles.helpContainer}>
-            <TouchableOpacity
-              onPress={this._handleHelpPress}
-              style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>
-                Help, it didn’t automatically reload!
-              </Text>
-            </TouchableOpacity>
           </View>
-        </ScrollView>
+        }
+        avatar={require('../storelogos/adidas.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity
+      onPress={() => {
+    this.popupDialog.show();
+  }}>
+      <ListItem
+        Avatar
+        title='   25% off select shoes'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#84DCC6'
+          progress={1}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Allbirds</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/allbirds.jpg')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
+      <TouchableOpacity>
+      <ListItem
+        Avatar
+        title='   20% off select items'
+        subtitle={
+          <View>
+          <View style={styles.bar}>
+          <ProgressViewIOS
+          progressTintColor='#ff686b'
+          progress={0.3}
+          width={200}/>
+          </View>
+          <View style={styles.subtitleView}>
+          <Text style={styles.ratingText}>Disney Store</Text>
+          <Text style={styles.ratingText}>Valid for 6 months</Text>
+          </View>
+          </View>
+        }
+        avatar={require('../storelogos/disney.png')}
+      />
+      </TouchableOpacity>
 
-        <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>
-            navigation/MainTabNavigator.js
-          </MonoText>
-        </View>
-      </View>
+   </List>
+   <PopupDialog
+   width={250}
+   height={150}
+dialogTitle={<DialogTitle title="Reward Redeemed" />}
+ref={(popupDialog) => { this.popupDialog = popupDialog; }}
+>
+<View style={styles.poptextcon}>
+<Text style={styles.poptext}>
+{`Yay!
+  You just got 25% off a brand you like for being a good person.
+  How cool is that?
+ `}
+</Text>
 
-      </View>
+</View>
+</PopupDialog>
+
+      </ScrollView>
+
     );
   }
-
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Home page demo {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/development-mode'
-    );
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
 }
 
 const styles = StyleSheet.create({
+  bar: {
+    paddingLeft: 20,
+    paddingTop: 5,
+  },
+  subtitleView: {
+    flexDirection: 'row',
+    paddingLeft: 10,
+    paddingTop: 5
+  },
+  ratingImage: {
+    height: 19.21,
+    width: 100
+  },
+  ratingText: {
+    paddingLeft: 10,
+    fontSize: 10,
+    color: 'grey'
+  },
+  poptext: {
+    fontSize: 10,
+    color: '#4F4F4F',
+    marginTop: 20,
+    textAlign: 'center',
+  },
+  poptextcon: {
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'red',
+  },
+  imgcon: {
+    backgroundColor: 'skyblue',
+    flex: 0.4,
+  },
+  titlecon: {
+    backgroundColor: 'white',
+    flex: 0.3,
+  },
+  text: {
+    fontSize: 15,
+    fontFamily: 'ubuntumono-regular',
+    color: '#4F4F4F',
+    textAlign: 'center',
+    marginTop: 15,
+  },
+  datetext: {
+    fontSize: 8,
+    fontFamily: 'ubuntumono-regular',
+    color: '#4F4F4F',
+    textAlign: 'center',
+
+  },
+  datecon: {
+    marginTop: 8,
+
+  },
+  buttoncon: {
+    marginTop: 15,
+
+  },
+  divider: {
+    backgroundColor: '#f6f6f6',
+    height: 15,
+
+  },
+  details: {
+    fontFamily: 'ubuntumono-regular',
+    fontSize: 8,
+    color: '#808080',
+    marginTop: 6,
+    marginLeft: 6,
+
+  },
+  description: {
+    fontFamily: 'ubuntumono-regular',
+    fontSize: 10,
+    color: '#808080',
+    marginTop: 6,
+    marginLeft: 6,
+  },
+  imgcon3: {
+    backgroundColor: 'white',
+    flex: 0.3,
+  },
+  img: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: undefined,
+    height: undefined,
+    resizeMode: 'cover',
   },
   developmentModeText: {
     marginBottom: 20,

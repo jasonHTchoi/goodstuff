@@ -8,24 +8,31 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
 import { Font } from 'expo';
 
-import { Button, Divider } from 'react-native-elements';
+import {
+  Button,
+  Divider,
+  FormLabel,
+  FormInput,
+} from 'react-native-elements';
 
 import PopupDialog, { DialogTitle } from 'react-native-popup-dialog';
 
-import { List, ListItem, ListView } from 'react-native-elements';
+import SquareGrid from "react-native-square-grid";
 
-import ProgressBarClassic from 'react-native-progress-bar-classic';
+import {
+  StackNavigator,
+} from 'react-navigation';
 
-
-export default class RewardsScreen extends React.Component {
+export default class SignUpScreen extends React.Component {
   static navigationOptions = {
-    title: 'Rewards',
+    title: 'Sign Up',
   };
 
   state = {
@@ -37,118 +44,83 @@ export default class RewardsScreen extends React.Component {
       'ubuntumono-regular': require('../assets/fonts/UbuntuMono-Regular.ttf'),
     });
     this.setState({ fontLoaded: true });
-  };
+  }
+
 
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
-      <ScrollView>
-      <List>
-     <ListItem
-       Avatar
-       title='20% off select items'
-       subtitle={
-         <View>
+      <View style={styles.background}>
+        <View style={styles.logocon}>
+        <Image style={styles.watermelon}
+          source={require('../goodstuff_transparent.png')}
+        />
+        </View>
+        <View style={styles.formbox}>
+          <View style={styles.forminner}>
+            <FormLabel>Username</FormLabel>
+            <FormInput/>
+            <FormLabel>Email</FormLabel>
+            <FormInput/>
+            <FormLabel>Password</FormLabel>
+            <FormInput
+              secureTextEntry={true}/>
 
-          <ProgressBarClassic progress={40} />
-
-         </View>
-       }
-       avatar={require('../storelogos/disney.png')}
-     />
-     <ListItem
-       Avatar
-       title='20% off select items'
-       subtitle={
-         <View style={styles.subtitleView}>
-           <Text style={styles.ratingText}>Disney Store</Text>
-           <Text style={styles.ratingText}>Valid for 6 months</Text>
-         </View>
-       }
-       avatar={require('../storelogos/disney.png')}
-     />
-     <ListItem
-       Avatar
-       title='20% off select items'
-       subtitle={
-         <View style={styles.subtitleView}>
-           <Text style={styles.ratingText}>Disney Store</Text>
-           <Text style={styles.ratingText}>Valid for 6 months</Text>
-         </View>
-       }
-       avatar={require('../storelogos/disney.png')}
-     />
-     <ListItem
-       Avatar
-       title='20% off select items'
-       subtitle={
-         <View style={styles.subtitleView}>
-           <Text style={styles.ratingText}>Disney Store</Text>
-           <Text style={styles.ratingText}>Valid for 6 months</Text>
-         </View>
-       }
-       avatar={require('../storelogos/disney.png')}
-     />
-     <ListItem
-       Avatar
-       title='20% off select items'
-       subtitle={
-         <View style={styles.subtitleView}>
-           <Text style={styles.ratingText}>Disney Store</Text>
-           <Text style={styles.ratingText}>Valid for 6 months</Text>
-         </View>
-       }
-       avatar={require('../storelogos/disney.png')}
-     />
-     <ListItem
-       Avatar
-       title='20% off select items'
-       subtitle={
-         <View style={styles.subtitleView}>
-           <Text style={styles.ratingText}>Disney Store</Text>
-           <Text style={styles.ratingText}>Valid for 6 months</Text>
-         </View>
-       }
-       avatar={require('../storelogos/disney.png')}
-     />
-     <ListItem
-       Avatar
-       title='20% off select items'
-       subtitle={
-         <View style={styles.subtitleView}>
-           <Text style={styles.ratingText}>Disney Store</Text>
-           <Text style={styles.ratingText}>Valid for 6 months</Text>
-         </View>
-       }
-       avatar={require('../storelogos/disney.png')}
-     />
-   </List>
-
-      </ScrollView>
-
+          </View>
+        </View>
+        <View style={styles.buttoncon}>
+          <Button
+            title='do good. get stuff.'
+            backgroundColor='#FF686B'
+            buttonStyle={{
+              height: 40,
+              width: 150,
+              alignSelf: 'center',
+              overflow: 'hidden',
+              borderRadius: 10,
+            }}
+            onPress={() =>
+          navigate('ChooseCause')
+        }
+          />
+        </View>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  subtitleView: {
-    flexDirection: 'row',
-    paddingLeft: 10,
-    paddingTop: 5
+  background: {
+    backgroundColor: '#A5FFD6',
+    flex: 1,
+    display: 'flex',
   },
-  ratingImage: {
-    height: 19.21,
-    width: 100
+  logocon: {
+    alignSelf: 'center',
   },
-  ratingText: {
-    paddingLeft: 10,
-    fontSize: 10,
-    color: 'grey'
+  watermelon: {
+    height: 120,
+    width: 120,
+  },
+  formbox: {
+    backgroundColor: 'white',
+    flex: 1,
+    margin: 30,
+    marginBottom: 10,
+    marginTop: 10,
+    display: 'flex',
+  },
+  forminner: {
+    backgroundColor: 'white',
+    flex: 1,
+    marginBottom: 20,
+    display: 'flex',
   },
   poptext: {
     fontSize: 10,
     color: '#4F4F4F',
-    marginTop: 20,
+    marginTop: 10,
     textAlign: 'center',
   },
   poptextcon: {
@@ -156,6 +128,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    display: 'flex',
     backgroundColor: 'red',
   },
   imgcon: {
@@ -185,7 +158,8 @@ const styles = StyleSheet.create({
 
   },
   buttoncon: {
-    marginTop: 15,
+    marginBottom: 40,
+    marginTop: 10,
 
   },
   divider: {
